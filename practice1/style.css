@@ -1,0 +1,51 @@
+button{
+	background: linear-gradient(#FF3C00, #392AFF);
+	border: 2px double #493333;
+	border-radius: 25%;
+	display: block;
+	margin: 0 auto;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 1rem;
+}
+body{
+	background: linear-gradient(to right, orange, blue);
+	flex-direction: column;
+	display: flex;
+	align-items: center;
+}
+form{
+	display: grid;
+	place-items: center;
+	width: fit-content;
+	margin: 0 auto;
+}
+ul{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 0;
+	list-style: none;
+	font-family: 'Times New Roman', Times, serif;
+	font-size: 1.5rem;
+}
+
+legend, label{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 1rem;
+}
+button:active{
+	box-shadow: 1px 1px 1px 1px #000;
+}
+button:hover{
+	transform: scale(1.05);
+}
+input{
+	padding: 10px;
+	border: 2px solid #ccc;
+	border-radius: 8px;
+	transition: all 0.3s ease;
+}
+input:focus{
+	transform: scale(1.05);
+	border-color: #392AFF;
+}
