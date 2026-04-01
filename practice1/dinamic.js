@@ -1,30 +1,43 @@
 const form = document.querySelector("#formulario");
 const carreraInput = document.querySelector("#carrera");
-const btn = document.querySelector("button");
 const lista = document.querySelector("#lista");
 
 let carreras = [];
 
 form.addEventListener("submit", (e) =>{
 	e.preventDefault();
+
 	const carrera = carreraInput.value;
 
+	if (carrera.trim() === "") return;
+
 	carreras.push({
-		carrera: carrera
+		nombre: carrera
 	});
+	
 	form.reset();
+	carreraInput.focus();
 	renderizar();
 
 });
+lista.addEventListener("click", (e)=>{
+	if(e.target.classList.contains("btn-eliminar")){
+		const index = Number(e.target.dataset.index);
 
+		eliminar(index);
+	}
+})
 function renderizar(){
-	lista.innerHTML = "";
+	let html="";
+
 	carreras.forEach((c, i) =>{
-		lista.innerHTML += `<li>
-		${c.carrera}
-		<button onclick="eliminar(${i})">Eliminar</button>
+		html += `<li>
+		${c.nombre}
+		<button class="btn-eliminar" data-index="${i}">Eliminar</button>
 	</li>`
 	});
+
+	lista.innerHTML = html;
 }
 function eliminar(index){
 	carreras.splice(index, 1);
