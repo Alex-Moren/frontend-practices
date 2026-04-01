@@ -7,8 +7,13 @@
 	<meta name="robots" content="index, follow">
 	<title>Connecting to repository</title>
 	<style>
+		:root{
+			--gradient-color-1: #1EF0C6;
+			--gradient-color-2: #4712F3;
+			--border-color: #0506E9;
+		}
 		body{
-			background-color: #93C6C9;
+			background: linear-gradient(to right, var(--gradient-color-1), var(--gradient-color-2));
 		}
 		nav{
 			display: flex;
@@ -20,9 +25,12 @@
 			font-family: 'Times New Roman', Times, serif;
 			font-size: 2rem;
 			margin: 2px;
+			color: #081239;
+			border: solid 2px var(--border-color);
+			background: linear-gradient(to left, var(--gradient-color-1), var(--gradient-color-2));
 		}
 		a:hover{
-			border: dashed 2px #0506E9;
+			border: dashed 2px var(--border-color);
 			box-shadow: 1px 1px 1px 1px #050635;
 		}
 	</style>
