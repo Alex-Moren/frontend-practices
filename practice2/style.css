@@ -1,20 +1,38 @@
-.hide{
+.contenido{
+
 	opacity: 0;
-	transform: translateY(20px);
+
+	transform: translateY(50px);
+
+	transition:
+	opacity 0.8s ease,
+	transform 0.8s ease;
+
+	visibility: hidden;
+
 	pointer-events: none;
+
 }
 
-.show{
+.visible{
+
 	opacity: 1;
+
 	transform: translateY(0);
+
+	visibility: visible;
+
+	pointer-events: auto;
+
 }
+
 #que_es_ceti{
 	transition: 0.4s;
 }
 *{
 	box-sizing: border-box;
 }
-#aprendizaje, #proyectos, #tecnologias{
+.flex-section{
 	display: flex;
 	gap: 20px;
 	margin-top: 20px;
@@ -95,13 +113,27 @@ p{
 	transform: scale(1.05);
 }
 @keyframes rotating_image {
-	0%{rotate: 0deg;}
-	13%{rotate: 45deg};
-	25%{rotate: 90deg;}
-	37%{rotate: 135deg;}
-	49%{rotate: 180deg;}
-	61%{rotate: 225deg;}
-	73%{rotate: 270deg;}
-	85%{rotate: 315deg;}
-	100%{rotate: 360deg;}
+
+	0%{
+		transform: rotate(0deg);
+	}
+
+	25%{
+		transform: rotate(90deg);
+	}
+
+	50%{
+		transform: rotate(180deg);
+	}
+
+	75%{
+		transform: rotate(270deg);
+	}
+
+	100%{
+		transform: rotate(360deg);
+	}
+
 }
+
+
