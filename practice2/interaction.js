@@ -1,34 +1,134 @@
-function change_color_que_es_ceti(){
-	let boton = document.getElementById('show_que_es_ceti');
-	let info = document.getElementById('que_es_ceti');
-	let cards = document.getElementById("aprendizaje");
-	let proyectos = document.getElementById('proyectos');
-	let invitacion = document.getElementById('invitacion');
-	let hr = document.querySelector('hr');
-	let imag = document.getElementById('image_section');
-	let tecnologias = document.getElementById('tecnologias');
+function show_data(){
 
-	boton.addEventListener("click", function(){
-		info.classList.toggle("show");
-		info.classList.toggle("hide");
+	const boton =
+	document.getElementById(
+		"show_que_es_ceti"
+	);
 
-		cards.classList.toggle("show");
-		cards.classList.toggle("hide");
+	const elements =
+	document.querySelectorAll(
+		".contenido"
+	);
 
-		proyectos.classList.toggle("show");
-		proyectos.classList.toggle("hide");
+	let activo = false;
 
-		invitacion.classList.toggle("show");
-		invitacion.classList.toggle("hide");
+	// LOCAL STORAGE
 
-		hr.classList.toggle("show");
-		hr.classList.toggle("hide");
+	const guardado =
+	localStorage.getItem(
+		"contenidoVisible"
+	);
 
-		imag.classList.toggle("show");
-		imag.classList.toggle("hide");
+	if(guardado === "true"){
 
-		tecnologias.classList.toggle("show");
-		tecnologias.classList.toggle("hide");
-});
+		activo = true;
+
+		mostrarElementos();
+
+	}
+
+	// BOTON
+
+	boton.addEventListener(
+		"click",
+		()=>{
+
+			activo = !activo;
+
+			if(activo){
+
+				mostrarElementos();
+
+				localStorage.setItem(
+					"contenidoVisible",
+					true
+				);
+
+			}else{
+
+				ocultarElementos();
+
+				localStorage.setItem(
+					"contenidoVisible",
+					false
+				);
+
+			}
+
+		}
+	);
+
+	// SCROLL
+
+	window.addEventListener(
+		"scroll",
+		function(){
+
+			if(activo){
+
+				checkScroll();
+
+			}
+
+		}
+	);
+
+	// FUNCIONES
+
+	function mostrarElementos(){
+
+		checkScroll();
+
+	}
+
+	function ocultarElementos(){
+
+		elements.forEach(
+			(element)=>{
+
+				element.classList.remove(
+					"visible"
+				);
+
+			}
+		);
+
+	}
+
 }
-change_color_que_es_ceti();
+
+function checkScroll(){
+
+	const elements =
+	document.querySelectorAll(
+		".contenido"
+	);
+
+	elements.forEach((element)=>{
+
+		const position =
+		element.getBoundingClientRect();
+
+		if(
+			position.top
+			<
+			window.innerHeight - 100
+		){
+
+			element.classList.add(
+				"visible"
+			);
+
+		}else{
+
+			element.classList.remove(
+				"visible"
+			);
+
+		}
+
+	});
+
+}
+
+show_data();
